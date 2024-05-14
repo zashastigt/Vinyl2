@@ -1,5 +1,5 @@
 <script setup>
-import {onMounted, ref} from "vue";
+import {ref} from "vue";
 import vinyl from "@/data/vinyl.json"
 import Disc from "@/components/Disc.vue";
 
