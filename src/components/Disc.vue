@@ -26,10 +26,10 @@
 
 <template>
     <div id="album" @click="setSelectedDisc(title)">
-        <img alt="album art" :src="'/albumArt/' + img">
+        <img alt="album art" :src="'/Vinyl2//albumArt/' + img">
         <div id="disc">
             <div id="discInside">
-                <img alt="album art" :src="'/albumArt/' + img">
+                <img alt="album art" :src="'/Vinyl2//albumArt/' + img">
             </div>
         </div>
     </div>
