@@ -1,5 +1,4 @@
 <script setup>
-
     import {ref} from "vue";
 
     defineProps({
@@ -19,14 +18,18 @@
         emit('selectedDisc', value)
     }
 
+    function getImageUrl(name) {
+        return new URL(`./dir/albumArt/${name}`, import.meta.url).href
+    }
+
 </script>
 
 <template>
     <div id="album" @click="setSelectedDisc(title)">
-        <img alt="album art" :src="'src/assets/albumArt/' + img">
+        <img alt="album art" :src="'/albumArt/' + img">
         <div id="disc">
             <div id="discInside">
-                <img alt="album art" :src="'src/assets/albumArt/' + img">
+                <img alt="album art" :src="'/albumArt/' + img">
             </div>
         </div>
     </div>
@@ -61,16 +64,21 @@
         z-index: -1;
     }
 
-    #album:hover #disc {
-        animation-name: hoverAlbum;
-        animation-duration: 1s;
-        animation-fill-mode: forwards;
-        z-index: 1;
-    }
-
     #album:hover img {
         transform: scale(1.1);
         z-index: 2;
+        transition: 0.5s;
+    }
+
+    #album:hover {
+        z-index: 2;
+    }
+
+    #album:hover #disc {
+        animation-name: hoverAlbum;
+        animation-duration: 0.7s;
+        animation-fill-mode: forwards;
+        z-index: -1;
     }
 
     #discInside {
@@ -85,8 +93,8 @@
     }
 
     #disc img {
-        height: 90%;
-        width: 90%;
+        height: 80%;
+        width: 80%;
         border-radius: 50%;
     }
 
