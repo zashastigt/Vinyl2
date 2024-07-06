@@ -6,26 +6,14 @@
         img:String,
         insideColor:String,
         outsideColor:String,
+        selectedVinyl:String,
         discPlayer:String
     })
-
-    const emit = defineEmits(['selectedDisc'])
-    console.log(emit)
-    const isMobile = ref(true)
-
-    function setSelectedDisc(value) {
-        console.log(value)
-        emit('selectedDisc', value)
-    }
-
-    function getImageUrl(name) {
-        return new URL(`./dir/albumArt/${name}`, import.meta.url).href
-    }
 
 </script>
 
 <template>
-    <div id="album" @click="setSelectedDisc(title)">
+    <div id="album" @click="selectedVinyl = title">
         <img alt="album art" :src="'/Vinyl2//albumArt/' + img">
         <div id="disc">
             <div id="discInside">
@@ -33,11 +21,9 @@
             </div>
         </div>
     </div>
-
 </template>
 
 <style scoped>
-
     #album {
         position: relative;
         height: 200px;
